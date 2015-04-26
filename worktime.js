@@ -14,8 +14,6 @@ if (Meteor.isClient) {
 		}
 	});
 
-	alert(Times.find({worker: Meteor.userId()}, {sort: {createdAt: -1}, fields: {sort: 1}, limit: 1}));
-
 	Template.body.events({
 		"click #arrive": function (event) {
 			Meteor.call("arrive");
