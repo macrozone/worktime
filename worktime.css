@@ -1,0 +1,17 @@
+/* CSS declarations go here */
+html,body{
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	background-color: #E7E7E7;
+}
+
+.container{
+	background-color: white; 
+	height: 100%;
+}
+
+#brand{
+	height: 50px;
+	width: 50px;
+}

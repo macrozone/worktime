@@ -1,0 +1,77 @@
+<head>
+	<title>Worktime 0.3 alpha</title>
+	<link rel="icon" href="./images/logo.png">
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<img alt="Brand" src="./images/logo.png" id="brand">
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<p class="navbar-text" style="font-weight: bolder;">Worktime 0.3 alpha</p>
+				<ul class="nav navbar-nav">
+					<li><a href="/">Home <span class="sr-only">(current)</span></a></li>
+					{{#if isAdmin}}
+						<li><a href="/admin">Admin</a></li>
+					{{/if}}
+
+					{{#if currentUser}}
+						{{> timeButtons}}
+					{{/if}}
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					{{> loginButtons}} 
+				</ul>
+			</div>
+		</div>
+	</nav> <!-- Navbar -->
+
+	<div style="height: 50px;"></div> <!-- Navbar-Margin --> 
+
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+		<div class="container-fluid">
+			<p class="navbar-text navbar-right" style="margin 10px;"><a href="/about">About </a> Worktime 0.3 alpha © by darkson95</p>
+		</div>
+	</nav> <!-- Footer -->
+</body>
+
+<template name="home">
+	<div class="container">
+		{{#if currentUser}}
+			<ul>
+				{{#each times}}
+					{{> time}}
+				{{/each}}
+			</ul>
+		{{else}}
+			<p>Du musst eingeloggt sein!</p>
+		{{/if}}
+	</div>	
+</template>
+
+<template name="time">
+	<li>{{sort}} - {{worker}} - {{createdAt}}</li>
+</template>
+
+<template name="timeButtons">
+	{{#if sort}}
+		<button type="button" class="btn btn-default navbar-btn" id="arrive">Kommen</button>
+	{{else}}
+		<button type="button" class="btn btn-default navbar-btn" id="leave">Gehen</button>
+	{{/if}}
+</template>
+
+<template name="about">
+	<div class="container">
+		<p>Worktime 0.3 alpha by darkson95 ©</p>
+	</div>	
+</template>
+
+<template name="admin">
+	<div class="container">
+		<p>Admin</p>
+	</div>	
+</template>
+
