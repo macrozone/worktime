@@ -26,6 +26,16 @@ if (Meteor.isClient) {
 	Accounts.ui.config({
 		passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
 	});
+
+	Template.timeButtons.helpers({
+		isArriving: function () {
+			var lastEntry = Times.findOne({worker: Meteor.userId()}, {sort: {createdAt: -1}});
+			if(lastEntry != null && lastEntry.sort === "arriving")
+				return true
+			else
+				return false
+		}
+	});
 }
 
 Meteor.methods({

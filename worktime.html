@@ -56,10 +56,10 @@
 </template>
 
 <template name="timeButtons">
-	{{#if sort}}
-		<button type="button" class="btn btn-default navbar-btn" id="arrive">Kommen</button>
-	{{else}}
+	{{#if isArriving}}
 		<button type="button" class="btn btn-default navbar-btn" id="leave">Gehen</button>
+	{{else}}
+		<button type="button" class="btn btn-default navbar-btn" id="arrive">Kommen</button>
 	{{/if}}
 </template>
 
